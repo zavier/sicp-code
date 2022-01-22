@@ -3,11 +3,13 @@
 (defn average [x y]
   (/ (+ x y) 2))
 
+(defn square [x] (* x x))
+
 (defn improve [guess x]
   (average guess (/ x guess)))
 
 (defn good-enough? [guess x]
-  (< (Math/abs (- (* guess guess) x)) 0.001))
+  (< (Math/abs (- (square guess) x)) 0.001))
 
 (defn sqrt-iter [guess x]
   (if (good-enough? guess x)
@@ -22,4 +24,4 @@
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (println (sqrt 1000)))
+  (println (sqrt 1000) (factorial 4)))
